@@ -14,6 +14,11 @@ keypoints:
 - nfcore is a community effort of curated nextflow pipelines.
 ---
 
+### A typical bioinformatics workflow 
+<p align="center">
+<img src="{{ page.root }}/fig/bioinformatics_workflow.png" style="margin:10px;height:500px"/>
+</p>
+
 ### What are workflow managers?
 - Transforming data into information involves running a large number of tools, optimizing parameters, and integrating dynamically changing reference data.
 - [Workflow managers](https://www.nature.com/articles/s41592-021-01254-9)  simplify pipeline development, optimize resource usage, handle software installation and versions, and run on different compute platforms, enabling workflow portability and sharing. 
