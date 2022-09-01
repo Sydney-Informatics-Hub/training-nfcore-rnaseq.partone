@@ -1,17 +1,16 @@
 ---
-title: "Setup"
+title: "Set up"
 teaching: 0
 exercises: 10
 questions:
 - "How do I securely log into a Nimbus VM instance?"
-- "How do I download the input (fastq) files?"
+- "How do I download the required input files on the Nimbus VM instance?"
 objectives:
 - "Successfully log in to a Nimbus instance using ssh."
 - "Download input data."
 keypoints:
 - Nimbus VM instances from Pawsey provide on-demand access for scalability.
-- Use an ssh client to connect to a Linux instance.
-- Learnt how to start an instance using the Nimbus Cloud.
+- We use a ssh client to connect to a Linux instance.
 ---
 
 ## The Pawsey Supercomputing Research Centre
@@ -47,23 +46,37 @@ We also recommend installing [XQuartz](https://www.xquartz.org/), which will rep
 #### C. Windows
 
 If you're using a Windows machine, don't panic! You might not have used 'CMD' since Windows 95 but, rest assured, Windows still has a couple of terminal programs and shells buried in the Programs menu.
+However, those aren't going to work for us, as you'll need extra programs and utilities to connect to Nimbus, such as an _SSH_ implementation. 
 
-However, those aren't going to work for us, as you'll need extra programs and utilities to connect to Nimbus, such as an _SSH_ implementation. To use Nimbus on a Windows computer, you have a couple of options:
+- To use Nimbus on a Windows computer, you have a couple of options, as shown below. 
+- We recommend using the `MobaXterm` terminal application. 
 
-##### i. PuTTY
-PuTTY, an SSH and telnet client, is a good simple option. However, note that PuTTY **does not** provide an X11 server, so you won't be able to use GUI programs with _just_ PuTTY. Head to [https://putty.org](https://putty.org) and download PuTTY. You can install it to your computer, or just download the 'binary' and run it directly. 
-
-##### ii. MobaXterm
+##### i. MobaXterm
 [MobaXterm](https://mobaxterm.mobatek.net/download.html) offers a rich experience as a full-featured X-server and terminal emulator for ssh connections, the free version is more than adequate.
 
-##### iv. WSL and Ubuntu
+`Directions` to install and start using MobaXterm
+
+- Go to https://mobaxterm.mobatek.net/download.html
+- Under ‘Home Edition’ select the `Download now` button
+- Select the MobaXterm Home Edition (Installer edition)
+- Once the program is downloaded, install it as you would any other windows program
+- Once the program is installed, start the MobaXterm program.  
+- From this screen, click on ‘start local terminal’
+- Type in: ssh training@XXX.XXX.XX
+- When prompted, enter your password
+
+##### ii. PuTTY
+PuTTY, an SSH and telnet client, is a good simple option. However, note that PuTTY **does not** provide an X11 server, so you won't be able to use GUI programs with _just_ PuTTY. Head to [https://putty.org](https://putty.org) and download PuTTY. You can install it to your computer, or just download the 'binary' and run it directly. 
+
+##### iii. WSL and Ubuntu
 Install Ubuntu or some other Linux distro on the Windows Subsystem for Linux see [here for details](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview). This one will give you a full suite of Linux functions and I like it for emulating Linux.
+
 
 ## Connecting to a Nimbus instance
 
 Loggin into a Nimbus instance requires three things:
 1. The **IP Address** (virtual address) of your instance. It is a series of numbers i.e. ###.###.###.###. Every participant is provided with an separate IP Address which points to an independant VM instance.
-2. Your **login name**: this depends on the name of the Linux OS image you selected and in our case it is ```ubuntu```.
+2. Your **login name**: this depends on the name of the Linux OS image you selected and in our case it is ```training```.
 3. Your **password**. Every participant is provided with a password
 
 <figure>
@@ -71,20 +84,33 @@ Loggin into a Nimbus instance requires three things:
   <figcaption> SSH connection to Nimbus VM instance </figcaption>
 </figure><br>
 
-### Logging in 
+### Logging-in using a terminal
 The primary means by which we can connect to this VM is via a Secure Shell (SSH) over a Command Line Interface (CLI). Type the following into your terminal, using your login name and the instance’s IP address:
 
 ```
-ssh byod-1@###.###.###.###
+ssh training@###.###.###.###
 Enter password:
 ```
 
-OR 
+See below for your IP address and login name. Each tester is provided with an independant 2c8g Pawsey VM instance. The password will be provided during the workshop.
 
-```
-ssh byod-2@###.###.###.###
-Enter password:
-```
+| Instance login           | Tester name          |  IP address      |
+|--------------------|------------------|-----------------|
+| training  |  146.118.68.238  |Tracy Chew |
+| training  |  146.118.67.99  |Sarah Beecroft |
+| training  |  146.118.65.237  |Lisa Phippard |
+| training  | 146.118.66.184  | Melissa Burke|
+| training  | 146.118.69.246   | Marion Shadbolt |
+| training | 146.118.69.4  | Andrew Lonie |
+| training  | 146.118.65.96 | Christina Hall |
+| training  | 146.118.64.65  | Steven Manos |
+| training | 146.118.65.186    | Alex Ip |
+| training |146.118.70.130   | Greg Darcy| 
+| training | 146.118.69.202   | Hoylen Sue   |
+| training |146.118.68.102   | ?   | 
+| training |146.118.69.152   | ??    | 
+| training | 146.118.64.244   |??? | 
+| training |  146.118.69.70  |Nandan Deshpande     |
 
 You will receive a message saying:
 ```
@@ -107,48 +133,70 @@ Meaning that next time you log in using this key and IP address you won’t rece
 **Congratulations, you have now successfully logged on to your instance!**
 
 
-#### Make a directory with your 'firstname'.
+#### Make a directory called 'base_directory'.
 ```
-mkdir <YOUR_NAME_DIR>
+mkdir base_directory
 ```
 
 #### Download the compressed file (.tar.gz) and set up the working directory
 
-In your terminal, type the following to move into to the directory where we want to store the input files folder:
+In your terminal, type the following to move into to the __base_directory__:
 ```
-cd <YOUR_NAME_DIR>
+cd base_directory
 ```
 Then type the following to download the input files:
 ```
-wget -O run_folder_with_all_files.tar.gz https://cloudstor.aarnet.edu.au/plus/s/fT3ddVYrA0AfdMY/download
-```
-The file is packaged up to save space. Unpack it with:
-```
-tar -zxvf run_folder_with_all_files.tar.gz
+git clone https://github.com/Sydney-Informatics-Hub/RNASeq_materials.git
 ```
 
-This creates a directory 'run_folder_with_all_files'. Move into this directory using the command
+The file is packaged up to save space. Move the file to the current directory and Unpack it:
 ```
-cd run_folder_with_all_files
+mv RNASeq_materials/working_directory.tar.gz ./
+tar -zxvf working_directory.tar.gz
 ```
-The run_folder_with_all_files folder contains the following files
-* 6 SRR*_selected.fastq.gz
+
+This creates a directory 'working_directory'. Move into this directory using the command
+```
+cd working_directory
+```
+
+The `working_directory` folder contains the following files
+* 6 files : SRR*_selected.fastq.gz
 * A samplesheet.csv and 
 * A nextflow.config file. 
+* FULL_count_matrix.txt
+* rnaseq_DE_Full_matrix_DryRun.Rmd (Day 2)
+* rnaseq_DE_Full_matrix_DryRun.html (Day 2)
 
-You can see/list all the files in your current directory by typing `ls -l`. 
+You can list all the files in your current directory by typing `ls -lh`. 
 
 ```
--rw-r--r-- 1 ubuntu ubuntu     330 Jul 27 02:35 samplesheet.csv
--rw-rw-r-- 1 ubuntu ubuntu    4641 Jul 27 02:31 nextflow.config
--rwxrwxr-x 1 ubuntu ubuntu 3566569 Jul 27 02:31 SRR3473984_selected.fastq.gz
--rwxrwxr-x 1 ubuntu ubuntu 3208125 Jul 27 02:31 SRR3473985_selected.fastq.gz
--rwxrwxr-x 1 ubuntu ubuntu 3170753 Jul 27 02:31 SRR3473986_selected.fastq.gz
--rwxrwxr-x 1 ubuntu ubuntu 3488119 Jul 27 02:31 SRR3473987_selected.fastq.gz
--rwxrwxr-x 1 ubuntu ubuntu 4370755 Jul 27 02:31 SRR3473988_selected.fastq.gz
--rwxrwxr-x 1 ubuntu ubuntu 3094352 Jul 27 02:31 SRR3473989_selected.fastq.gz
+-rw-------@ 1 deshpandes  staff   919K 22 Apr 15:11 FULL_count_matrix.txt
+-rw-------@ 1 deshpandes  staff   1.3K 30 Aug 11:53 README
+-rwxr-xr-x@ 1 deshpandes  staff   3.4M 28 Jul 06:11 SRR3473984_selected.fastq.gz
+-rwxr-xr-x@ 1 deshpandes  staff   3.1M 28 Jul 06:11 SRR3473985_selected.fastq.gz
+-rwxr-xr-x@ 1 deshpandes  staff   3.0M 28 Jul 06:11 SRR3473986_selected.fastq.gz
+-rwxr-xr-x@ 1 deshpandes  staff   3.3M 28 Jul 06:11 SRR3473987_selected.fastq.gz
+-rwxr-xr-x@ 1 deshpandes  staff   4.2M 28 Jul 06:11 SRR3473988_selected.fastq.gz
+-rwxr-xr-x@ 1 deshpandes  staff   3.0M 28 Jul 06:11 SRR3473989_selected.fastq.gz
+-rw-------@ 1 deshpandes  staff   4.8K 28 Jul 06:11 nextflow.config
+-rw-r--r--@ 1 deshpandes  staff    18K 30 Aug 11:33 rnaseq_DE_Full_matrix_DryRun.Rmd
+-rw-r--r--@ 1 deshpandes  staff   5.0M 30 Aug 11:37 rnaseq_DE_Full_matrix_DryRun.html
+-rw-------@ 1 deshpandes  staff   330B 28 Jul 07:25 samplesheet.csv
+```
+
+Check your path by typing:
+```
+pwd
+```
+- You should be in the path: ```/home/training/base_directory/working_directory``` 
+- If you are not, move into the above path by typing:
+```
+cd /home/training/base_directory/working_directory
 ```
 
 
+- Please keep this command-line (terminal) window open for further analysis. 
+- Please go back to the main page by clicking [here](https://sydney-informatics-hub.github.io/RNASeq_dryrun_Biocommons/) and proceed to discuss bioinformatics workflows and do some hands-on-excercises in the section `Introduction to nf-core/rnaseq`.
 
 {% include links.md %}
