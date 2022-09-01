@@ -3,7 +3,8 @@ title: "Day 1 - Learning objectives"
 teaching: 10
 exercises: 0
 questions:
-- "How to setup the Nimbus VM instance?"
+- "How to refresh your unix shell (bash) skills?"
+- "How to securely log-in to a Nimbus VM instance?"
 - "What is Nextflow?"
 - "What is nfcore-rnaseq?"
 - "How to run 'nfcore-rnaseq' pipeline on the Pawsey Nimbus VM instance?"
@@ -17,23 +18,25 @@ keypoints:
 - XXX
 ---
 
-#### Setting up the Nimbus VM training-instance 
+#### How to do things in unix (A quick refresher)
+```
+- Opening a terminal window.
+- Handling directories and files.
+- Visualising contents of text files.
 ```
 
-
+#### Step I :  nfcore-rnaseq
 ```
-
-#### Step I : nextflow: nfcore-rnaseq
-```
-. What is nextflow?
-. What is nfcore-rnaseq?
+- A typical bioinformatics workflow - too complicated?
+- Nextflow as a workflow management systems, how does it help?
+- Use nfcore’s rnaseq pipeline to transform raw sequencing data into analysis ready count data.
 ```
 
 #### A platform to run nfcore-rnaseq pipeline 
 ```
-. The Pawsey/Nimbus virtual machine (VM)
-. Introduction to trainee VMs from Pawsey
-. How to log on to a trainee VM?
+- The Pawsey/Nimbus virtual machine (VM)
+- Introduction to trainee VMs from Pawsey
+- How to log on to a trainee VM?
 ```
 
 #### Run nfcore-rnaseq
