@@ -1,0 +1,91 @@
+---
+title: "Running nfcore-rnaseq on Pawsey Nimbus VM"
+teaching: 10
+exercises: 0
+questions:
+- "What does the actual nfcore-rnaseq command look like?"
+- "What are the main input parameters?"
+- "What are the outputs?"
+- "What are the output log files?"
+
+objectives:
+- "Understanding and excecuting the nfcore-rnaseq command, it's inputs and outputs"
+
+keypoints:
+- Pawsey Nimbus VM is a good resource to run nfcore piplelines
+- System resouces such as cpus and memory can be customised per step using config files.
+- Excecution and timeline logs files provide a detailed summary of the run.
+---
+
+### Running the pipeline on Pawsey-Nimbus VM
+
+- Please go back to the command-line(Terminal) window on which you have logged on to the Nimbus training instance.
+Check your path by typing:
+```
+pwd
+```
+- You should be in the path: `/home/training/base_directory/working_directory` 
+- If you are not, move into the above path by typing:
+```
+cd /home/training/base_directory/working_directory
+```
+
+#### Excecuting the Nextflow nfcore-rnaseq pipeline
+We will run the single nfcore-rnaseq command using a utility called __screen__ in unix.
+
+What is the `screen` command?
+- __The screen command__ in Linux provides the ability to launch and use multiple shell sessions from a single ssh session. 
+- When a process is started with ‘screen’, the process can be detached from session & then can reattach the session at a later time. 
+- When the session is detached, the process that was originally started from the screen is still running and managed by the screen itself. 
+- The process can then re-attach the session at a later time, and the terminals are still there, the way it was left.
+
+
+#### (1) Start a new screen window 
+-S: It will start a new window within the screen and also gives a name to the window. 
+It creates a session which is identified by that name. The name can be used to reattach screen at a later stage.
+
+```
+screen -S run_nextflow_in_screen
+```
+
+#### (2) Run the nfcore-rnaseq command 
+```
+cvmfs_path=/cvmfs/data.biocommons.aarnet.edu.au/Final_resources_250722
+  
+nextflow run $cvmfs_path/nfcore_pipeline/rnaseq/ \                                                # The nfcore-rnaseq excecutable file
+                --input samplesheet.csv \                                                         # samplesheet file-name
+                -profile singularity \                                                            # profile e.g. singularity
+                --fasta $cvmfs_path/Mouse_chr18_reference/chr18.fa \                              # Path: Genome fasta file
+                --gtf $cvmfs_path/Mouse_chr18_reference/chr_18_startOfLine.gtf \                  # Path: annotation (gtf) file
+                --star_index $cvmfs_path/Mouse_chr18_reference/chr18_STAR_singularity_index/ \    # Path: Genome 'STAR' index file
+                --max_memory '6 GB' --max_cpus 2 \                                                # memory and cpu resources 
+                --outdir results \
+                -with-report excecution_report.html \                                             # Excecution log file-name 
+                -with-timeline timeline_report.html                                               # Timeline log file-name
+```
+- The [CernVM File System](https://cernvm.cern.ch/fs/) i.e. `cvmfs` provides a scalable, reliable and low-maintenance software distribution service.
+- The names of cvmfs folders (e.g. __Final_resources_250722__) and files need to be standardised (make these more user-friendly). This is __work in progress__.
+
+
+#### (3) Detach from the above screen session
+-d: It is used to detach a screen session so that it can be reattached in future. 
+It can also be done with the help of shortcut key ```Ctrl-a + d```
+
+#### (4) Reattach the screen-session to check the progress
+-r: It is used to reattach a screen session which was detached in past.
+```
+screen -r run_nextflow_in_screen
+```
+Repeat Steps (3) and (4) to check the the excecution status of the command.
+
+- The nfcore-rnaseq command will take about 18-22 minutes to run to completion.
+- In the mean time we will proceed to discuss some of the important log files. 
+- We plan to make a `pre-processed results folder` available for download. If one of more trainees have a runtime problem, they will be able view these pre-computed results.   
+- An `scp command` to transfer required files from the results folder on the VM instance to your local machine will also be made available.
+
+
+
+
+
+
+  
