@@ -1,6 +1,6 @@
 ---
 title: "Introduction to the nfcore-rnaseq command"
-teaching: 10
+teaching: 5
 exercises: 0
 questions:
 - "How to provide sequence data input to nfcore-rnaseq pipeline?"
