@@ -1,7 +1,7 @@
 ---
 title: "Set up"
 teaching: 0
-exercises: 10
+exercises: 15
 questions:
 - "How do I securely log into a Nimbus VM instance?"
 - "How do I download the required input files on the Nimbus VM instance?"
