@@ -1,10 +1,9 @@
 ---
-title: "Run nfcore-rnaseq on a Nimbus instance"
+title: "Introduction to the nfcore-rnaseq command"
 teaching: 10
 exercises: 0
 questions:
 - "How to provide sequence data input to nfcore-rnaseq pipeline?"
-- "How to identify strandedness of the data?"
 - "How to provide reference data to nfcore-rnaseq pipeline?"
 - "How to assign cpu/memory resources to the Nimbus VM instance?"
 - "How to assign the software tools to nfcore-rnaseq pipeline?"
