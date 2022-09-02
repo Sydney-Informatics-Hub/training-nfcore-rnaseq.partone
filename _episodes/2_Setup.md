@@ -89,28 +89,7 @@ The primary means by which we can connect to this VM is via a Secure Shell (SSH)
 
 ```
 ssh training@###.###.###.###
-Enter password:
 ```
-
-See below for your IP address and login name. Each tester is provided with an independant 2c8g Pawsey VM instance. The password will be provided during the workshop.
-
-| Instance login           | Tester name          |  IP address      |
-|--------------------|------------------|-----------------|
-| training  |  146.118.68.238  |Tracy Chew |
-| training  |  146.118.67.99  |Sarah Beecroft |
-| training  |  146.118.65.237  |Lisa Phippard |
-| training  | 146.118.66.184  | Melissa Burke|
-| training  | 146.118.69.246   | Marion Shadbolt |
-| training | 146.118.69.4  | Andrew Lonie |
-| training  | 146.118.65.96 | Christina Hall |
-| training  | 146.118.64.65  | Steven Manos |
-| training | 146.118.65.186    | Alex Ip |
-| training |146.118.70.130   | Greg Darcy| 
-| training | 146.118.69.202   | Hoylen Sue   |
-| training |146.118.68.102   | ?   | 
-| training |146.118.69.152   | ??    | 
-| training | 146.118.64.244   |??? | 
-| training |  146.118.69.70  |Nandan Deshpande     |
 
 You will receive a message saying:
 ```
@@ -124,10 +103,13 @@ If you are sure (and/or confirm the fingerprint), answer ‘yes’ to continue. 
 ```
 Warning: Permanently added '146.118.67.137' (ECDSA) to the list of known hosts.
 ```
+```
+Enter password:
+```
 Meaning that next time you log in using this key and IP address you won’t receive this message. Having done that, your terminal should then display something like that shown in the figure below:
 
 <figure>
-  <img src="{{ page.root }}/fig/Nimbus_VM_loggedIn_window.png" style="margin:10px;height:400px"/>
+  <img src="{{ page.root }}/fig/Nimbus_login_screen.png" style="margin:10px;height:400px"/>
 </figure><br>
 
 **Congratulations, you have now successfully logged on to your instance!**
