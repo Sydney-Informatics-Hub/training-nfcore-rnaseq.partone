@@ -1,0 +1,20 @@
+---
+title: "Raw data and quality checking"
+teaching: 10
+exercises: 0
+questions:
+- "What is FastQ?"
+- "How to evaluate the quality using fastQC"
+
+
+objectives:
+- "Understand FASTQ format"
+- " Understand the quality metrix of FASTQ using fastQC"
+keypoints:
+- 
+- 
+---
+
+Exercise 1
+- Open a fastQ file
+
