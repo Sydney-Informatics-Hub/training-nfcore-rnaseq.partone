@@ -15,6 +15,14 @@ keypoints:
 - 
 ---
 
-Exercise 1
-- Open a fastQ file
+> ## Challenge
+> 
+> Open a fastQ file
+> How many sequences were in SRR3473984.fastq?
+> What are the lengths of the reads in SRR3473984.fastq?
+> Which part of the reads tend to have worse per base sequence quality? 
+
+> When inspecting FastQC reports for RNA seq data, you may notice the categories “Per base sequence content” and “Sequence Duplication Levels” marked as failing QC. Why is this?
+
+{: .challenge}
 
