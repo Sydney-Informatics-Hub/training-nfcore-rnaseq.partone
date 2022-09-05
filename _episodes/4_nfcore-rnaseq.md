@@ -22,7 +22,7 @@ keypoints:
 ### Workflow 
 
 <p align="center">
-  <img src="{{ page.root }}/fig/nf-core-rnaseq_metro_map_grey.png" style="margin:10px;height:300px"/>
+  <img src="{{ page.root }}/fig/typical_and_nfcore_merged.png" style="margin:10px;height:300px"/>
 </p>
 
 - nfcore-rnaseq uses [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/),[MultiQC](http://multiqc.info/), [Trim Galore!](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) and other tools for quality control and pre-processing of sequencing reads.
