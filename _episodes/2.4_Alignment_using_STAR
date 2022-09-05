@@ -1,0 +1,19 @@
+---
+title: "Alignment to refence genome"
+teaching: 5
+exercises: 10
+questions:
+- "Why trim RNA seqeuncig reads?"
+
+objectives:
+- "Understand the requirement for trimming RNA sequencing reads"
+- "Understand the pros and cons of trimming"
+
+keypoints:
+- 
+- 
+---
+
+
+
+https://sydney-informatics-hub.github.io/training-RNAseq/03-MapReads/index.html
