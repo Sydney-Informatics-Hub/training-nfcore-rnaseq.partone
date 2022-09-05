@@ -10,14 +10,54 @@ objectives:
 - "Understanding the nfcore-rnaseq parameters"
 
 keypoints:
+- A single nfcore command can be run for the complete workflow excecution.
 - nfcore provides high flexibility to use alternative tools for a step in the rnaseq pipeline.
 - nfcore provides high flexibility when allowing to skip non-madatory steps in the rnaseq pipeline.
 
 ---
+
+## The nfcore-rnaseq command
+```
+cvmfs_path=/cvmfs/data.biocommons.aarnet.edu.au/Final_resources_250722
+  
+nextflow run $cvmfs_path/nfcore_pipeline/rnaseq/ \                                                # The nfcore-rnaseq excecutable file
+                --input samplesheet.csv \                                                         # samplesheet file-name
+                -profile singularity \                                                            # profile e.g. singularity
+                --fasta $cvmfs_path/Mouse_chr18_reference/chr18.fa \                              # Path: Genome fasta file
+                --gtf $cvmfs_path/Mouse_chr18_reference/chr_18_startOfLine.gtf \                  # Path: annotation (gtf) file
+                --star_index $cvmfs_path/Mouse_chr18_reference/chr18_STAR_singularity_index/ \    # Path: Genome 'STAR' index file
+                --max_memory '6 GB' --max_cpus 2 \                                                # memory and cpu resources 
+                --outdir results \
+                -with-report excecution_report.html \                                             # Excecution log file-name 
+                -with-timeline timeline_report.html                                               # Timeline log file-name
+```
+
+
 This episode introduces the user to the important nfcore-rnaseq parameters
 
 
-### Input/output options
+### Samplesheet for sequence data
+- You will need a [samplesheet](https://nf-co.re/rnaseq/3.7/usage#samplesheet-input) with information about the samples you would like to analyse. 
+- It has to be a comma-separated file with 4 columns, and a header row as shown in the example samplesheet below. 
+- If the samplesheet is located in a different folder, you can use this parameter to specify its location. 
+
+<figure>
+  <img src="{{ page.root }}/fig/elaborate_samplesheet.png" style="margin:10px;height:150px"/>
+</figure><br>
+
+- The four columns in the samplesheet are as follows:
+<figure>
+  <img src="{{ page.root }}/fig/samplesheet_description.png" style="margin:10px;height:200px"/>
+</figure><br>
+
+- The samplesheet required for today's analysis is a lot simpler, as we are using single-end reads. 
+- This samplesheet is already created and placed in the folder XXX.
+- However one thing we can check ourselves as a task, is the **strandedness** of the read library.
+
+
+
+
+### Other input/output options
 ```
 --input   Path to comma-separated file containing information about the samples in the experiment.
 --outdir  The output directory where the results will be saved.
