@@ -18,11 +18,13 @@ keypoints:
 
 ---
 
-<figure>
-  <img src="{{ page.root }}/fig/STEP1_original_pipe_to_nextflowing.png" style="margin:10px;height:400px"/>
-  <figcaption> RNA-Seq analysis workflow </figcaption>
-</figure><br>
-
+### Quick Start
+```
+nextflow run nf-core/rnaseq \
+    --input samplesheet.csv \
+    --outdir <OUTDIR> --genome GRCh38 
+    -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
+```
 
 ### Samplesheet for sequence data
 - You will need a [samplesheet](https://nf-co.re/rnaseq/3.7/usage#samplesheet-input) with information about the samples you would like to analyse. 
@@ -51,13 +53,7 @@ keypoints:
 - Or CernVM-FS
 ```
 
-### Quick Start
-```
-nextflow run nf-core/rnaseq \
-    --input samplesheet.csv \
-    --outdir <OUTDIR> --genome GRCh38 
-    -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
-```
+
 
 - Note that some kind of configuration will be needed so that Nextflow knows how to fetch the required software. This is usually done in the form of a config profile. 
 - The pipeline comes with config profiles such as docker, singularity, podman, shifter, charliecloud and conda which instruct the pipeline to use the named tool for software management.
