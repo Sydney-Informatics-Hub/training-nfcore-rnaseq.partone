@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Nextflow"
+title: "Why use a workflow managers such as Nextflow?"
 teaching: 10
 exercises: 0
 questions:
