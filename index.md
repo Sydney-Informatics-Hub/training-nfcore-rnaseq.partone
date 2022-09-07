@@ -12,7 +12,7 @@ __This workshop is in a DRAFT stage.__
 
 **Useful resources**
 - Quick refresher to __[Unix/Linux command line](https://sydney-informatics-hub.github.io/training-nfcore-rnaseq.partone/refresh_bash)__
-- Introduction to the __[Command Line for Genomics](https://datacarpentry.org/shell-genomics/)__
+- Introduction to __[Command Line for Genomics](https://datacarpentry.org/shell-genomics/)__
 - __[Nextflow and Supercomputing at Pawsey]()__ : An introduction to nextflow pipelines and Pawsey supercomputing. 
 
 
