@@ -134,29 +134,4 @@ $ less words.txt
 - Quit the navigation by pressing q.
 
 
-
-> ## Your Project is your key!
->
-> Let's say this again: **Everything** that can happen on Artemis is managed by _projects_.
->
-> You need an Artemis-enabled _project_ to gain access to Artemis.
->
-> You need to specify a _project_ when requesting Artemis resources.
->
-> You can only access the **/project** and **/scratch** directories of _your project_.
->
-> _**Project**_!!  :smirk:
-{: .keypoints}
-
-> ## Challenge #1
-> Specify your **project**.
->
-> Use the ```-P``` PBS directive to specify the _**Training**_ project, using its _short name_.
-> ~~~
-> #PBS -P Training
-> ~~~
-> {: .language-bash}
-{: .solution}
-
-
 {% include links.md %}
