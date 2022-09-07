@@ -1,5 +1,5 @@
 ---
-title: "Running nfcore-rnaseq on Pawsey Nimbus VM"
+title: "Deploy the RNA-seq workflow nfcore-rnaseq on Pawsey’s Nimbus Cloud"
 teaching: 10
 exercises: 0
 questions:
