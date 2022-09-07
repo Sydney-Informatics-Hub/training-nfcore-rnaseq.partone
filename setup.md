@@ -1,13 +1,11 @@
 ---
-title: "Set up"
+title: "Setup"
 teaching: 0
 exercises: 15
 questions:
 - "How do I securely log into a Nimbus VM instance?"
-- "How do I download the required input files on the Nimbus VM instance?"
 objectives:
 - "Successfully log in to a Nimbus instance using ssh."
-- "Download input data."
 keypoints:
 - Nimbus VM instances from Pawsey provide on-demand access for scalability.
 - We use a ssh client to connect to a Linux instance.
